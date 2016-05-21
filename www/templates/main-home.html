@@ -1,0 +1,16 @@
+<ion-view title="Alpha Learning">
+  <ion-content>
+    <ion-list>
+      <div class="logo-wrapper">
+        <img src="img/alpha-1.jpg" />
+      </div>
+      <ion-item ng-repeat="category in categories" class="item-thumbnail-left" ng-href="#/categories/{{ category._id }}">
+        <img src="{{ category.image_url }}">
+
+        <h2>{{ category.name }}</h2>
+        <p>{{ category.description }}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+

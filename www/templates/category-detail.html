@@ -1,0 +1,22 @@
+<ion-view title="{{ category.name }}">
+  <ion-content>
+    <ion-list>
+      <div class="card">
+        <div class="padding-vertical">
+          <div class="logo-wrapper">
+            <img src="{{ category.image_url }}" />
+          </div>
+        </div>
+				<div class="item item-text-wrapper">
+					<p>{{ category.description }}</p>
+				</div>
+      </div>
+      <ion-item ng-repeat="class in classes" class="item-thumbnail-left" ng-href="#/classes/{{ class._id }}">
+        <img src="{{ class.image_url }}">
+
+        <h2>{{ class.name }}</h2>
+        <p>{{ class.description }}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

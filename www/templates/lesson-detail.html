@@ -1,0 +1,22 @@
+<ion-view title="{{ lesson.name }}">
+  <ion-content>
+    <ion-list>
+      <div class="card">
+        <div class="padding-vertical">
+          <div class="video-container">
+            <iframe src="{{ videoUrl }}" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+				<div class="item item-text-wrapper">
+					<p>{{ lesson.description }}</p>
+				</div>
+      </div>
+			<div class="item">
+				<button class="button button-large button-full button-energized" ui-sref="lesson-challenges({ lessonId: lesson._id })">
+					Desafios
+				</button>
+			</div>
+    </ion-list>
+  </ion-content>
+</ion-view>
+

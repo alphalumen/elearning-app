@@ -1,0 +1,36 @@
+<ion-view title="{{ lesson.name }} - Desafios">
+  <ion-content>
+    <ion-list>
+      <ion-item class="card" ng-repeat="challenge in challenges">
+        <h2>{{ challenge.title }}</h2>
+        <p>{{ challenge.description }}</p>
+
+        <form>
+          <ion-radio ng-repeat="answer in challenge.answers" ng-value="$index" ng-model="challenge.selectedAnswer" ng-disabled="state.showAnswers">
+            {{ answer }}
+          </ion-radio>
+        </form>
+
+        <ion-item ng-if="state.showAnswers && challenge.selectedAnswer == challenge.answer">
+          Resposta certa
+        </ion-item>
+
+        <ion-item ng-if="state.showAnswers && challenge.selectedAnswer != challenge.answer">
+          Resposta errada, a resposta certa seria:
+
+          <p>{{ challenge.answers[challenge.answer] }}</p>
+
+          <p ng-if="challenge.video_help_time">Clique <a ui-sref="lesson({ lessonId: lesson._id, videoStart: challenge.video_help_time })">aqui</a> para rever a explicação no video.</p>
+        </ion-item>
+      </ion-item>
+
+			<ion-item>
+				<button class="button button-large button-full button-balanced" ng-click="verifyAnswers()">
+					Verificar
+				</button>
+			</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+
